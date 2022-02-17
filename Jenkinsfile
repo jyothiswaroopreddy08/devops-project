@@ -22,5 +22,12 @@ pipeline{
         bat "mvn clean package"
       }
     }
+    stage('Sonar Scan'){
+      steps{
+        withSonarQubeEnv(credentialsId: 'sonar-token') {
+        bat "mvn sonar:sonar"
+        }
+      }
+}
   }
 }
