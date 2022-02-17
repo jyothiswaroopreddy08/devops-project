@@ -24,7 +24,7 @@ pipeline{
     }
     stage('Sonar Scan'){
       steps{
-        withSonarQubeEnv(credentialsId: 'sonar-token') {
+        withSonarQubeEnv(credentialsId: 'SonarQube') {
         bat "mvn sonar:sonar"
         }
       }
