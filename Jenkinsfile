@@ -6,12 +6,12 @@ pipeline{
   stages{
     stage('Checkout') {
       steps{
-        checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/jyothiswaroopreddy08/DevOps']]])
+        git credentialsId: 'jyothi', url: 'git@github.com:jyothiswaroopreddy08/devops-project.git'
       }
      }
   stage('Build'){
       steps{
-        bat "mvn clean install"
+        bat "mvn clean test"
       }
     }
   }
