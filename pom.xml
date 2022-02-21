@@ -69,7 +69,7 @@
 				</executions>
 				<configuration>
 					<systemPropertyVariables>
-						<jacoco-agent.destfile>target/reports</jacoco-agent.destfile>
+						<jacoco-agent.destfile>target/jacoco.exec</jacoco-agent.destfile>
 					</systemPropertyVariables>
 				</configuration>
 			</plugin>
