@@ -33,7 +33,7 @@ pipeline{
     steps{
     rtServer(
     id: "jfrog",
-    url: 'https://jyothiserver.jfrog.io'
+    url: 'https://jyothiserver.jfrog.io/artifactory',
     bypassProxy: true,
     timeout: 300
             )
