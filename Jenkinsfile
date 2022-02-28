@@ -9,17 +9,22 @@ pipeline{
      }
   stage('Build'){
       steps{
-        bat "mvn clean install"
+        bat "mvn install"
+      }
+    }
+    stage('Verify'){
+      steps{
+        bat "mvn clean verify"
       }
     }
     stage('Test'){
       steps{
-        bat "mvn clean test"
+        bat "mvn test"
       }
     }
     stage('Package'){
       steps{
-        bat "mvn clean package"
+        bat "mvn package"
       }
     }
     stage('Sonar Scan'){
