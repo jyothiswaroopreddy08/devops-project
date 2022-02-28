@@ -72,7 +72,7 @@
     <goal>check</goal>
   </goals>
   <configuration>
-    <dataFile>${D:\DevOps workspace\devops-project}/my-reports/jacoco.exec</dataFile>
+    <dataFile>${D:\DevOps workspace\devops-project}/target/jacoco.exec</dataFile>
     <rules>
       <rule>
         <element>BUNDLE</element>
