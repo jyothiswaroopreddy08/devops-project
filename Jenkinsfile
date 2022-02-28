@@ -28,6 +28,39 @@ pipeline{
         bat "mvn sonar:sonar"
         }
       }
-}
+    }
+    stage('Server'){
+    steps{
+    rtServer(
+    id: "jfrog",
+    url: 'https://jyothiserver.jfrog.io'
+    bypassProxy: true,
+    timeout: 300
+            )
+        }
+    }
+    stage('Upload'){
+    steps{
+    rtUpload(
+    serverId: "jfrog",
+    spec: '''{
+    "files": [
+    {
+    "pattern": "*.jar",
+    "target": "devops-pipeline-libs-snapshot-local"
+                }
+            ]
+        }''',
+      )
+     }
+    }
+   stage('Publish'){
+   steps{
+   rtPublishBuildInfo(
+   serverId: "jfrog"
+        )
+     }
+   }
+    
   }
 }
