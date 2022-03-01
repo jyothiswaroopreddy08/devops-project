@@ -19,7 +19,7 @@ public class Tester {
 		public void test1() {
 			Addition a=new Addition();
 			
-			int actual=a.sum(25, 40);
+			int actual=a.add(25, 40);
 			int expected=65;
 			
 			assertEquals(expected, actual);
