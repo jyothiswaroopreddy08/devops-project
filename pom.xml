@@ -66,13 +66,14 @@
 							<outputDirectory>target/my-reports</outputDirectory>
 						</configuration>
 					</execution>
+<!--
 		<execution>
   <id>jacoco-check</id>
   <goals>
     <goal>check</goal>
   </goals>
   <configuration>
-<!--     <dataFile>${D:\DevOps workspace\devops-project}/target/jacoco.exec</dataFile> -->
+     <dataFile>${D:\DevOps workspace\devops-project}/target/jacoco.exec</dataFile> 
     <rules>
       <rule>
         <element>CLASS</element>
@@ -92,6 +93,7 @@
     </rules>
   </configuration>
 </execution>
+-->
 				</executions>
 				<configuration>
 					<systemPropertyVariables>
