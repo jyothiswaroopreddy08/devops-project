@@ -58,15 +58,18 @@ pipeline{
             ]
         }''',
       )
-     }
-    }
-   stage('Publish'){
-   steps{
-   rtPublishBuildInfo(
+      rtPublishBuildInfo(
    serverId: "jfrog"
         )
      }
-   }
+    }
+//    stage('Publish'){
+//    steps{
+//    rtPublishBuildInfo(
+//    serverId: "jfrog"
+//         )
+//      }
+//    }
     
   }
 }
