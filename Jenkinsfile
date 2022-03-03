@@ -45,7 +45,7 @@ pipeline{
             )
         }
     }
-    stage('Upload'){
+    stage('Artifactory Upload'){
     steps{
     rtUpload(
     serverId: "jfrog",
