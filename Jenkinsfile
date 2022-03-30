@@ -19,13 +19,13 @@ pipeline{
 //         bat "mvn package"
 //       }
 //     }
-//     stage('Sonar Scan'){
-//       steps{
-//         withSonarQubeEnv(installationName: 'SonarQube', credentialsId: 'sonar-token') {
-//         bat "mvn sonar:sonar"
-//         }
-//       }
-//     }
+    stage('Sonar Scan'){
+      steps{
+        withSonarQubeEnv(installationName: 'SonarQube', credentialsId: 'sonar-token') {
+        bat "mvn sonar:sonar"
+        }
+      }
+    }
 //     stage("Quality Gate") {
 //             steps {
 //                waitForQualityGate abortPipeline: true
