@@ -28,7 +28,7 @@
 <jacoco.version>0.8.7</jacoco.version>
 <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
 <sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
-<sonar.jacoco.reportPath>${D:\DevOps workspace\devops-project}/../target/jacoco.exec</sonar.jacoco.reportPath>
+<sonar.coverage.jacoco.xmlReportPaths>${D:\DevOps workspace\devops-project}/../target/jacoco.exec</sonar.coverage.jacoco.xmlReportPaths>
 <sonar.language>java</sonar.language>
 
 </properties>
