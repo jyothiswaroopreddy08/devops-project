@@ -2,11 +2,7 @@ pipeline{
   agent any
   
   stages{
-//     stage('Checkout') {
-//       steps{
-//         git credentialsId: 'jyothi', url: 'git@github.com:jyothiswaroopreddy08/devops-project.git'
-//       }
-//      }
+
   stage('Build'){
       steps{
         bat "mvn install"
@@ -36,16 +32,7 @@ pipeline{
            
 //             }
 //           }
-//     stage('Server'){
-//     steps{
-//     rtServer(
-//     id: "jfrog",
-//     url: 'https://jyothiserver.jfrog.io/artifactory',
-//     bypassProxy: true,
-//     timeout: 300
-//             )
-//         }
-//     }
+
     stage('Artifactory Upload'){
     steps{
     rtUpload(
@@ -64,13 +51,7 @@ pipeline{
         )
      }
     }
-//    stage('Publish'){
-//    steps{
-//    rtPublishBuildInfo(
-//    serverId: "jfrog"
-//         )
-//      }
-//    }
+
     
   }
 }
