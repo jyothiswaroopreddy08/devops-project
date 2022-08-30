@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <style>
+    h1 {
+      text-align: center;
+    }
+
+    p {
+      text-align: center;
+    }
+
+    div {
+      text-align: center;
+    }
+
+    select {
+      appearance: none;
+      outline: 0;
+      background: whitesmoke;
+      background-image: none;
+      width: auto;
+      height: auto;
+      color: black;
+      cursor: pointer;
+      border: 1px solid black;
+      border-radius: 3px;
+    }
+
+    button {
+      background-color: #a61e4d;
+      color: #efefef;
+      border: none;
+      text-align: center;
+      padding: 10px 20px;
+    }
+  </style>
+  <meta charset="utf-8">
+  <title>Configure</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+
+<body>
+  <div class="card-header">
+    <h1>Angular App</h1>
+  </div>
+
+  <div>
+    <h4>Enter Configuration details</h4>
+  </div>
+
+  <p>
+  <form>
+    <div>
+      <label for="Techstack">Tech stack:</label>
+      <select name="Techstack" id="Techstack">
+        <option value="none" selected disabled hidden>Select an option</option>
+        <option value="Java">java</option>
+        <option value="Angular">angular</option>
+        <option value="Dotnet">dotnet</option>
+        <option value="Terraform">terraform</option>
+      </select>
+    </div>
+    </p>
+    <p>
+    <div>
+      <label for="sonarqube">SonarQube:</label>
+      <select name="sonarqube" id="sonarqube">
+        <option value="none" selected disabled hidden>Select an option</option>
+        <option value="True">True</option>
+        <option value="False">False</option>
+      </select>
+    </div>
+    </p>
+    <p>
+    <div>
+      <label for="Docker">Docker:</label>
+      <select name="Docker" id="Docker">
+        <option value="none" selected disabled hidden>Select an option</option>
+        <option value="True">True</option>
+        <option value="False">False</option>
+      </select>
+    </div>
+  </form>
+  </p>
+  <p>
+  <div>
+    <label for="Github Repo">Github Repo Path:</label>
+    <input type="text" style="background-color: whitesmoke; width:auto" placeholder="Enter github repo url/Path">
+  </div>
+  </p>
+  <div>
+    <label for="Branch">Branch Name:</label>
+    <input type="text" style="background-color: whitesmoke;" placeholder="Enter branch name">
+  </div>
+
+  <p>
+  <div>
+
+    <button type="submit">Submit</button>
+  </div>
+  </p>
+</body>
+
+</html>

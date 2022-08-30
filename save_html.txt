@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Configure yaml</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+    	div {
+            padding: 10px;
+            background-color: #f6f6f6;
+            overflow: hidden;
+        }
+    	input[type=text], textarea, select {
+            font: 17px Calibri;
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        input[type=button]{ 
+            font: 17px Calibri;
+            width: auto;
+            float: right;
+            cursor: pointer;
+            padding: 7px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        
+        <div>
+          <label>Techstack:</label>
+          <select id="Techstack">
+              <option selected value="">-- Choose the option --</option>
+              <option value="Java">Java</option>
+              <option value="Angular">Angular</option>
+              <option value="Dotnet">Dotnet</option>
+              <option value="Terraform">Terraform</option>
+          </select>
+      </div>
+        <div>
+          <label>Docker:</label>
+            <select id="Docker">
+                <option selected value="">-- Choose the option --</option>
+                <option value="True">True</option>
+                <option value="False">False</option>
+            </select>
+        </div>
+        <div>
+          <label>SonarQube:</label>
+            <select id="Sonarqube">
+                <option selected value="">-- Choose the option --</option>
+                <option value="True">True</option>
+                <option value="False">False</option>
+            </select>
+        </div>
+        <div>
+          <label>Github Url</label>
+            <textarea id="GitUrl" name="GitUrl" placeholder="Enter Github Repo url/Path"></textarea>
+        </div>
+        <div>
+          <label>Git Branch</label>
+            <textarea id="GitBranch" name="GitBranch" placeholder="Enter branch name"></textarea>
+        </div>
+        <div>
+            <input type="button" id="bt" value="Save data to file" onclick="saveFile()" />
+        </div>
+
+    </div>
+</body>
+<script>
+    let saveFile = () => {
+    	
+        // Get the data from each element on the form.
+    	const Techstack = document.getElementById('Techstack');
+        const Docker = document.getElementById('Docker');
+        const Sonarqube = document.getElementById('Sonarqube');
+        const GitUrl = document.getElementById('GitUrl');
+        const GitBranch = document.getElementById('GitBranch');
+        
+        // This variable stores all the data.
+        let data = 
+            '\r Techstack: ' + Techstack.value + ' \r\n ' + 
+            'Docker: ' +Docker.value + ' \r\n ' + 
+            'Sonarqube: ' +Sonarqube.value + ' \r\n ' + 
+            'GitUrl: ' + GitUrl.value + ' \r\n ' + 
+            'GitBranch: ' + GitBranch.value;
+        
+        // Convert the text to BLOB.
+        const textToBLOB = new Blob([data], { type: 'text/plain' });
+        const sFileName = 'formData.txt';	   // The file to save the data.
+
+        let newLink = document.createElement("a");
+        newLink.download = sFileName;
+
+        if (window.webkitURL != null) {
+            newLink.href = window.webkitURL.createObjectURL(textToBLOB);
+        }
+        else {
+            newLink.href = window.URL.createObjectURL(textToBLOB);
+            newLink.style.display = "none";
+            document.body.appendChild(newLink);
+        }
+
+        newLink.click(); 
+    }
+</script>
+</html>
