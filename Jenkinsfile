@@ -5,20 +5,20 @@ pipeline{
 
   stage('Build'){
       steps{
-        bat "mvn install"
+        sh "mvn install"
       }
     }
     
     stage('Compile'){
       steps{
-        bat "mvn compile"
+        sh "mvn compile"
       }
     }
 
     stage('Sonar Scan'){
       steps{
         withSonarQubeEnv(installationName: 'SonarQube', credentialsId: 'sonar-token') {
-        bat "mvn sonar:sonar"
+        sh "mvn sonar:sonar"
         }
       }
     }  
