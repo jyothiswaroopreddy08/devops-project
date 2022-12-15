@@ -19,7 +19,7 @@ pipeline{
 
     stage('Sonar Scan'){
       steps{
-        withSonarQubeEnv(installationName: 'SonarQube', credentialsId: 'sonarqube-token') {
+        withSonarQubeEnv(installationName: 'SonarQube', credentialsId: 'sonar-token') {
         sh "mvn sonar:sonar"
         }
       }
