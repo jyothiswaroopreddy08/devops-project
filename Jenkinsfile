@@ -1,28 +1,16 @@
-pipeline{
-  agent any
-      tools {
+pipeline {
+  agent any       
+  tools {
         maven 'MAVEN_HOME'
       }
-  stages{
-
-  stage('Build'){
-      steps{
-        sh 'mvn install'
-      }
-    }
-    
-    stage('Compile'){
-      steps{
-        sh "mvn compile"
-      }
-    }
-
-    stage('Sonar Scan'){
-      steps{
-        withSonarQubeEnv(installationName: 'SonarQube', credentialsId: 'sonar-token') {
-        sh "mvn sonar:sonar"
+  stages {
+    stage('Build') {
+      steps {
+        script {
+          def version = "${env.JOB_NAME} - ${env.BUILD_ID}"
+          sh "mvn clean install -Dproject.version=${version} -Dsonar.projectKey='com.devops:devops-project' -Dsonar.host.url=http://localhost:9000/"
         }
       }
-    }  
+    }
   }
 }
